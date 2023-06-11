@@ -9,5 +9,5 @@ data class MoviesAndFavorites(
         parentColumn = "movieId",
         entityColumn = "movie_id"
     )
-    val favorites: Favorites
+    val favorites: List<Favorites>? = null
 )
