@@ -23,6 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:exported="false"
+            android:name="com.example.cinemate.ui.MovieDetailsActivity"
+            android:label="Movie Details" />
     </application>
 
 </manifest>

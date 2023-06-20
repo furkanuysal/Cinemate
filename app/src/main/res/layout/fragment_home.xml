@@ -16,6 +16,9 @@
         android:padding="8dp"
         android:gravity="center"
         android:rowHeight="100dp"
+        android:clickable="true"
+        android:choiceMode="singleChoice"
+        android:listSelector="@color/lightblue_clickable"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

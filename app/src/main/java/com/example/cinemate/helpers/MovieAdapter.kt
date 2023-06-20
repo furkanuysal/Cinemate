@@ -1,6 +1,8 @@
 package com.example.cinemate.helpers
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.cinemate.R
 import com.example.cinemate.database.Movies
+import com.example.cinemate.ui.MovieDetailsActivity
 
 class MovieAdapter : BaseAdapter {
 
@@ -43,8 +46,22 @@ class MovieAdapter : BaseAdapter {
             view = convertView
             viewHolder = view.tag as ViewHolder
         }
-
         val movie = movies[position]
+        view.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("movieId", movie.movieId)
+            bundle.putString("movieName", movie.movieName)
+            bundle.putString("movieGenre", movie.movieGenre)
+            bundle.putString("movieDirector", movie.movieDirector)
+            bundle.putInt("movieYear", movie.movieYear)
+
+            val intent = Intent(context, MovieDetailsActivity::class.java)
+            intent.putExtra("movieBundle", bundle)
+            context.startActivity(intent)
+
+        }
+
+
         viewHolder.movieNameTextView.text = movie.movieName
         viewHolder.movieYearTextView.text = movie.movieYear.toString()
 

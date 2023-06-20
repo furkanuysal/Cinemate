@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        dbHelper = DatabaseHelper.getDatabase(requireContext())
+        dbHelper = DatabaseHelper.getInstance(requireContext())
         movieDao = dbHelper.movieDao()
 
         movieGridView = view.findViewById(R.id.gridViewMovies)

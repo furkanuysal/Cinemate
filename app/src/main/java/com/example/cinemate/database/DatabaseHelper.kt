@@ -14,7 +14,7 @@ abstract class DatabaseHelper : RoomDatabase() {
         @Volatile
         private var INSTANCE: DatabaseHelper? = null
 
-        fun getDatabase(context: Context): DatabaseHelper {
+        fun getInstance(context: Context): DatabaseHelper {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,

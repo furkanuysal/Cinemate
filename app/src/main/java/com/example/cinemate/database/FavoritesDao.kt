@@ -18,4 +18,11 @@ interface FavoritesDao {
 
     @Delete
     fun deleteFavorite(favorite: Favorites)
+
+    @Query("DELETE FROM favorites WHERE movie_Id = :movieId")
+    fun deleteFavoriteByMovieId(movieId: Int)
+
+    @Query("SELECT EXISTS(SELECT 1 FROM favorites WHERE movie_Id = :movieId LIMIT 1)")
+    suspend fun isFavorite(movieId: Int): Boolean
+
 }
