@@ -8,6 +8,6 @@
     <string name="action_settings">Add new movie</string>
 
     <string name="menu_home">Movies</string>
-    <string name="menu_gallery">Favorites</string>
-    <string name="menu_slideshow">Add new movie</string>
+    <string name="menu_favorites">Favorites</string>
+    <string name="menu_addnew">Add new movie</string>
 </resources>

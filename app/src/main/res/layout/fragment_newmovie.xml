@@ -5,34 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     tools:context=".ui.newmovie.NewMovieFragment">
 
 
     <EditText
+        android:layout_marginTop="80dp"
+        android:background="@drawable/edit_text_border"
+        style="@style/EditTextView"
         android:id="@+id/editTextMovieName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="Movie Name" />
 
     <EditText
+        style="@style/EditTextView"
         android:id="@+id/editTextMovieGenre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="Movie Genre" />
 
     <EditText
+        style="@style/EditTextView"
         android:id="@+id/editTextMovieDirector"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="Movie Director" />
 
     <EditText
+        style="@style/EditTextView"
         android:id="@+id/editTextMovieYear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="Movie Year" />
 
     <Button
+        android:background="@drawable/button_style"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:id="@+id/buttonAddMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

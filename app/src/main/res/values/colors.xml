@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lightblue_clickable">#B1E7FB</color>
+    <color name="quetarnary_color">#FDE2F3</color>
+    <color name="tertiary_color">#E5BEEC</color>
+    <color name="secondary_color">#917FB3</color>
+    <color name="primary_color">#2A2F4F</color>
 </resources>

@@ -1,40 +1,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
     <TextView
+        android:background="@drawable/edit_text_border"
+        android:layout_marginTop="20dp"
+        android:text="Movie Name"
         android:id="@+id/movieNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:padding="8dp" />
 
     <TextView
+        android:text="Movie Director"
         android:id="@+id/movieDirectorTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="15sp"
         android:padding="8dp" />
 
     <TextView
         android:id="@+id/movieGenreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:text="Movie Genre"
+        android:textSize="15sp"
         android:padding="8dp" />
 
     <TextView
         android:id="@+id/movieYearTextView"
+        android:text="Movie Year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="15sp"
         android:padding="8dp" />
 
     <Button
+        android:layout_marginTop="50dp"
         android:id="@+id/buttonAddToFavorites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add to Favorites" />
+        android:text="Add to Favorites"
+        android:textSize="15dp"/>
 
 </LinearLayout>
