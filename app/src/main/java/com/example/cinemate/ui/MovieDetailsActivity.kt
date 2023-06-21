@@ -1,6 +1,7 @@
 package com.example.cinemate.ui
 
 import android.os.Bundle
+import android.provider.ContactsContract.Data
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -10,6 +11,7 @@ import com.example.cinemate.R
 import com.example.cinemate.database.DatabaseHelper
 import com.example.cinemate.database.Favorites
 import com.example.cinemate.database.FavoritesDao
+import com.example.cinemate.database.MovieDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -18,6 +20,8 @@ import kotlinx.coroutines.withContext
 class MovieDetailsActivity : AppCompatActivity() {
 
     private lateinit var favoritesDao: FavoritesDao
+    private lateinit var movieDao: MovieDao
+
 
     private lateinit var movieNameTextView: TextView
     private lateinit var movieDirectorTextView: TextView
@@ -25,14 +29,17 @@ class MovieDetailsActivity : AppCompatActivity() {
     private lateinit var movieGenreTextView: TextView
 
     private lateinit var buttonAddToFavorites: Button
+    private lateinit var buttonDeleteMovie: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_movie_detail)
 
         favoritesDao = DatabaseHelper.getInstance(application).favoriteDao()
+        movieDao = DatabaseHelper.getInstance(application).movieDao()
 
         buttonAddToFavorites = findViewById(R.id.buttonAddToFavorites)
+        buttonDeleteMovie = findViewById(R.id.buttonDeleteMovie)
 
         movieNameTextView = findViewById(R.id.movieNameTextView)
         movieDirectorTextView = findViewById(R.id.movieDirectorTextView)
@@ -62,6 +69,10 @@ class MovieDetailsActivity : AppCompatActivity() {
 
             buttonAddToFavorites.setOnClickListener {
                 toggleFavoriteStatus(movieId)
+            }
+            buttonDeleteMovie.setOnClickListener{
+                removeMovieCompletely(movieId)
+                finish()
             }
         }
     }
@@ -109,6 +120,14 @@ class MovieDetailsActivity : AppCompatActivity() {
             buttonAddToFavorites.text = "Remove from Favorites"
         } else {
             buttonAddToFavorites.text = "Add to Favorites"
+        }
+    }
+
+    private fun removeMovieCompletely(movieId: Int) {
+        GlobalScope.launch(Dispatchers.IO) {
+            favoritesDao.deleteFavoriteByMovieId(movieId)
+            movieDao.deleteMovieByMovieId(movieId)
+            showToast("Movie removed completely")
         }
     }
 

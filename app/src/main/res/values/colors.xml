@@ -12,4 +12,5 @@
     <color name="tertiary_color">#E5BEEC</color>
     <color name="secondary_color">#917FB3</color>
     <color name="primary_color">#2A2F4F</color>
+    <color name="red">#83000B</color>
 </resources>

@@ -27,4 +27,7 @@ interface MovieDao {
 
     @Delete
     fun deleteMovie(movie: Movies)
+
+    @Query("DELETE FROM movies WHERE movieId = :movieId")
+    fun deleteMovieByMovieId(movieId: Int)
 }
